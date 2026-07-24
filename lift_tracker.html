@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Lift Tracker" />
+    <meta name="theme-color" content="#07111f" />
+    <title>Lift Tracker</title>
+    <link rel="stylesheet" href="lift_tracker.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-card">
+        <p class="eyebrow">Editable exercise planner</p>
+        <h1>Lift Tracker</h1>
+        <p class="hero-text">
+          Create groups, add exercises to them, and update your plan over time.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Create a group</h2>
+        <form id="group-form" class="group-form">
+          <label>
+            Group name
+            <input id="group-name" name="name" type="text" placeholder="Upper body" required />
+          </label>
+          <button type="submit">Save group</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Add or update an exercise</h2>
+        <form id="exercise-form" class="exercise-form">
+          <label>
+            Exercise name
+            <input id="exercise-name" name="name" type="text" placeholder="Bench press" required />
+          </label>
+          <label>
+            Group
+            <select id="exercise-group" name="groupId"></select>
+          </label>
+          <div class="row">
+            <label>
+              Target min reps
+              <input id="rep-min" name="repMin" type="number" min="1" value="6" required />
+            </label>
+            <label>
+              Target max reps
+              <input id="rep-max" name="repMax" type="number" min="1" value="8" required />
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              Reps completed
+              <input id="reps-completed" name="repsCompleted" type="number" min="0" value="7" required />
+            </label>
+            <label>
+              Weight (kg)
+              <input id="weight" name="weight" type="number" min="0" step="0.5" value="60" required />
+            </label>
+          </div>
+          <button type="submit">Save exercise</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Your groups</h2>
+          <span id="group-summary" class="meta">0 groups</span>
+        </div>
+        <div id="group-list" class="group-list"></div>
+      </section>
+    </main>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("service-worker.js").catch((error) => {
+            console.warn("Service worker registration failed", error);
+          });
+        });
+      }
+    </script>
+    <script src="lift_tracker.js"></script>
+  </body>
+</html>
