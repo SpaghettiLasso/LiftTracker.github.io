@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Lift Tracker icon">
+  <rect width="256" height="256" rx="56" fill="#07111f" />
+  <path d="M76 182h104" stroke="#58d6c2" stroke-width="20" stroke-linecap="round" />
+  <path d="M104 182V96" stroke="#7c9eff" stroke-width="20" stroke-linecap="round" />
+  <path d="M152 182V74" stroke="#7c9eff" stroke-width="20" stroke-linecap="round" />
+  <path d="M76 96h104" stroke="#58d6c2" stroke-width="20" stroke-linecap="round" />
+</svg>
